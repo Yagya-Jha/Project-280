@@ -1,0 +1,67 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/OsbWood.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.3051191441862886 0.25965921440610656 0.9162310845114514 1.3284960368399341
+  position -0.3913333871153239 -1.3546449912407936 1.0531642381405095
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 0.6
+  location 0.5 0 0
+}
+DEF Slope Solid {
+  translation 0 0 0.15
+  rotation 0 1 0 0.4
+  children [
+    Shape {
+      appearance OsbWood {
+        textureTransform TextureTransform {
+        }
+      }
+      geometry Box {
+        size 0.8 0.2 0.02
+      }
+      castShadows FALSE
+    }
+  ]
+}
+Robot {
+  translation -0.332843 -0.0147811 0.424989
+  rotation 0.10055596471856383 -0.010049296474066823 -0.9948806509325102 2.94339
+  children [
+    Transform {
+      translation 0 0 0.0415
+      children [
+        Shape {
+          appearance PBRAppearance {
+            baseColor 1 0 0
+            roughness 1
+            metalness 0
+          }
+          geometry DEF body Cylinder {
+            height 0.08
+            radius 0.045
+          }
+          castShadows FALSE
+        }
+      ]
+    }
+    Altimeter {
+    }
+  ]
+  name "mybot"
+  contactMaterial "body"
+}
